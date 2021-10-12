@@ -1,15 +1,13 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span [routerLink]="['/list']" class="example-header">Bookmarker</span>
-    <span class="example-spacer"></span>
+  <mat-toolbar-row> <span [routerLink]="['/list']" class="example-header">Bookmarker</span> <span
+      class="example-spacer"></span>
     <mat-icon>search</mat-icon>
-    <mat-form-field class="example-full-width" floatLabel="never">
-      <input type="text" matInput placeholder="Filter bookmarks…" />
-    </mat-form-field>
-    <span class="example-spacer"></span>
+    <mat-form-field class="example-full-width" floatLabel="never"> <input type="text" matInput
+        placeholder="Filter bookmarks…"> </mat-form-field> <span class="example-spacer"></span>
+
+    <mat-icon [routerLink]="['/create']" class="example-icon" matTooltip="Create a new bookmark">add</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-icon [routerLink]="['/create']" class="example-icon" matTooltip="Create a new bookmark">add</mat-icon>
-</mat-toolbar-row>
-</mat-toolbar>
 <router-outlet></router-outlet>
+
+
