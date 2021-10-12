@@ -14,10 +14,11 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./shared/services/in-memory-data/in-memory-data-service";
+import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ErrorDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
