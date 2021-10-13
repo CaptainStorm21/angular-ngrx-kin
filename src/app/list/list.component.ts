@@ -12,7 +12,7 @@ import { isToday, isYesterday } from '../shared/util';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  allBookmarks: Bookmark[] | any[] = [];
+  allBookmarks: Bookmark[] = [];
   todaysBookmarks: Bookmark[] | undefined;
   yesterdaysBookmarks: Bookmark[] | undefined;
   olderBookmarks: Bookmark[] | undefined;
@@ -20,6 +20,8 @@ export class ListComponent implements OnInit {
   constructor(public readonly bookmarkService: BookmarkService) {}
 
   ngOnInit() {
+    this.allBookmarks = [];
+    console.log(this.allBookmarks);
     this.allBookmarks = this.bookmarkService.allBookmarks;
     this.todaysBookmarks = this.allBookmarks.filter((bookmark) =>
       isToday(bookmark.created)

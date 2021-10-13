@@ -11,11 +11,10 @@ import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from "@angular/common/http";
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./shared/services/in-memory-data/in-memory-data-service";
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/services/in-memory-data/in-memory-data-service';
 import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
-
 
 @NgModule({
   declarations: [AppComponent, ErrorDialogComponent],
@@ -25,10 +24,12 @@ import { ErrorDialogComponent } from './shared/components/error-dialog/error-dia
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatIconModule, MatToolbarModule, MatFormFieldModule,
-    MatInputModule, HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {
+    MatIconModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
       passThruUnknownUrl: true,
       put204: false,
@@ -36,7 +37,6 @@ import { ErrorDialogComponent } from './shared/components/error-dialog/error-dia
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
-

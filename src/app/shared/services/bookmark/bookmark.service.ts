@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { getLocaleDateTimeFormat } from '@angular/common';
+
 
 export interface Bookmark {
   id: number;
@@ -28,6 +28,7 @@ export class BookmarkService {
   ) {}
 
   public getAll(): Observable<Bookmark[]> {
+    console.log(this.allBookmarks)
     return this.http.get<Bookmark[]>('api/bookmarks');
   }
 
