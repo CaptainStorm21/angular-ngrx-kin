@@ -17,11 +17,14 @@ export class ListComponent implements OnInit {
   yesterdaysBookmarks: Bookmark[] | undefined;
   olderBookmarks: Bookmark[] | undefined;
 
-  constructor(public readonly bookmarkService: BookmarkService) {}
+  constructor(public readonly bookmarkService: BookmarkService) {
+    this.allBookmarks = [];
+    this.allBookmarks = this.bookmarkService.allBookmarks;
+    console.log(this.allBookmarks);
+    console.log(this.bookmarkService.allBookmarks);
+  }
 
   ngOnInit() {
-    this.allBookmarks = [];
-    console.log(this.allBookmarks);
     this.allBookmarks = this.bookmarkService.allBookmarks;
     this.todaysBookmarks = this.allBookmarks.filter((bookmark) =>
       isToday(bookmark.created)
@@ -36,4 +39,5 @@ export class ListComponent implements OnInit {
       );
     });
   }
+
 }
