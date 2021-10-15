@@ -28,7 +28,7 @@ export class BookmarkService {
   ) {}
 
   public getAll(): Observable<Bookmark[]> {
-    console.log(this.allBookmarks);
+    // console.log(this.allBookmarks);
     return this.http.get<Bookmark[]>('api/bookmarks');
   }
 
