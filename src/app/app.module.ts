@@ -18,6 +18,7 @@ import { ErrorDialogComponent } from './shared/components/error-dialog/error-dia
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { ROOT_REDUCERS, metaReducers } from './store';
 
 
 
@@ -50,6 +51,8 @@ import { environment } from '../environments/environment';
       maxAge: 25,
       logOnly: environment.production
     }),
+    StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
   bootstrap: [AppComponent],
