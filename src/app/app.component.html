@@ -4,7 +4,10 @@
     <span class="example-spacer"></span>
     <mat-icon>search</mat-icon>
     <mat-form-field class="example-full-width" floatLabel="never">
-      <input type="tel" matInput placeholder="Filter bookmarks..." [(ngModel)]="bookmarkService.filterText">
+      <input
+            type="text"
+            matInput placeholder="Filter bookmarks..."
+            (input) = "onFilterChange($any ($event.target).value)">
     </mat-form-field>
     <span class="example-spacer"></span>
     <mat-icon [routerLink]="['/create']" class="example-icon" matTooltip="Create a new bookmark">add</mat-icon>
