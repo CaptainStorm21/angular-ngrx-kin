@@ -15,6 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data/in-memory-data-service';
 import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [AppComponent, ErrorDialogComponent],
@@ -34,6 +39,16 @@ import { ErrorDialogComponent } from './shared/components/error-dialog/error-dia
       passThruUnknownUrl: true,
       put204: false,
       // return entity after PUT/update
+    }),
+    StoreModule.forRoot([], {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
     }),
   ],
   providers: [],
