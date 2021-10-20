@@ -1,13 +1,10 @@
+<mat-list *ngIf="filterText$ | async as filterText; else groupedBookmarks">
 
-
-
-<mat-list *ngIf="bookmarkService.filterText; else groupedBookmarks">
-
-  <h3 mat-subheader>Results for "<em>{{bookmarkService.filterText}}</em>"</h3>
-  <mat-list-item *ngFor="let allBookmark of allBookmarks | fuzzy: bookmarkService.filterText">
+  <h3 mat-subheader>Results for "<em>{{filterText}}</em>"</h3>
+  <mat-list-item *ngFor="let allBookmark of allBookmarks | fuzzy: filterText">
     <mat-icon mat-list-icon>bookmark</mat-icon>
-    <h4 mat-line>{{allBookmark.name}}</h4> <a [href]="allBookmark.url" mat-line> {{allBookmark.url}}</a> <a
-      [routerLink]="['/edit', allBookmark.id]">
+    <h4 mat-line>{{allBookmark.name}}</h4>
+    <a [href]="allBookmark.url" mat-line> {{allBookmark.url}}</a> <a [routerLink]="['/edit', allBookmark.id]">
       <mat-icon mat-list-icon>edit</mat-icon>
     </a>
   </mat-list-item>
@@ -36,8 +33,8 @@
     <mat-list-item *ngFor="let olderBookmark of olderBookmarks">
 
       <mat-icon mat-list-icon>bookmark</mat-icon>
-      <h4 class="text-secondary-2 text-left">{{olderBookmark.name}}</h4> <a [href]="olderBookmark.url" mat-line> {{olderBookmark.url}}</a> <a
-        [routerLink]="['/edit', olderBookmark.id]">
+      <h4 class="text-secondary-2 text-left">{{olderBookmark.name}}</h4> <a [href]="olderBookmark.url" mat-line>
+        {{olderBookmark.url}}</a> <a [routerLink]="['/edit', olderBookmark.id]">
         <mat-icon mat-list-icon>edit</mat-icon>
       </a>
     </mat-list-item>

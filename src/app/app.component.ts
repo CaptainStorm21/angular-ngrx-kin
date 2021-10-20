@@ -16,7 +16,6 @@ import { FILTER_BOOKMARKS } from './store/toolbar/toolbar.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  value = '';
   constructor
     (public readonly store$: Store<AppState>) { }
 
